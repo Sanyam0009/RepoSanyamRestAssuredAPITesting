@@ -19,6 +19,7 @@ public class RestAssuredExtension {
 		this.method = method;
 		//Alternet way to do this by RequestSpecBuilder // We will do this by RequestSpecification
 		// builder.addHeader("Content-Type", "application/json");
+		//builder.setContentType(ContentType.JSON);
 		// builder.setBaseUri("https://reqres.in/api/");
 		//builder.setContentType(ContentType.JSON);
 
@@ -29,6 +30,7 @@ public class RestAssuredExtension {
 		RequestSpecification request = RestAssured.given().spec(requestSpecification);
 		request.contentType(ContentType.JSON);
 		//request.queryParams(query); // if want to do by RequestSpecification
+		// request.pathParams(parameterNameValuePairs); // if we want to do by request specification
 		
 		if (this.method.equalsIgnoreCase("GET"))
 			return request.get(this.uri);
@@ -52,6 +54,16 @@ public class RestAssuredExtension {
 	public ResponseOptions<Response> executeWithBody (HashMap<String, String> body){
 		//builder.addPathParams(pathParams);
 		builder.setBody(body);
+		return executeAPI();
+	}
+	
+	public ResponseOptions<Response> executeWithBodyObj(Object body){
+		builder.setBody(body);
+		return executeAPI();
+		
+	}
+	
+	public ResponseOptions<Response> executeMethodOnly(){
 		return executeAPI();
 	}
 }
