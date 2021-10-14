@@ -6,6 +6,7 @@ public class Comments {
     private String name;
     private String email;
     private String body;
+    private String abc;
     
     public int getPostId() {
 		return postId;
@@ -35,6 +36,12 @@ public class Comments {
 		return body;
 	}
 	public void setBody(String body) {
+		this.body = body;
+	}
+	public String getabc() {
+		return body;
+	}
+	public void setabc(String body) {
 		this.body = body;
 	}
 	

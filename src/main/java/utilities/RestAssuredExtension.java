@@ -15,13 +15,14 @@ public class RestAssuredExtension {
 	private String method;
 
 	public RestAssuredExtension(String uri, String method) {
-		this.uri = "https://jsonplaceholder.typicode.com/" + uri;
+		String url = "https://jsonplaceholder.typicode.com/";
+		this.uri =  url + uri;
 		this.method = method;
 		//Alternet way to do this by RequestSpecBuilder // We will do this by RequestSpecification
 		// builder.addHeader("Content-Type", "application/json");
+		// builder.addHeader("Authorization","Bearer TokenName_211_2313_34");
 		//builder.setContentType(ContentType.JSON);
 		// builder.setBaseUri("https://reqres.in/api/");
-		//builder.setContentType(ContentType.JSON);
 
 	}
 
