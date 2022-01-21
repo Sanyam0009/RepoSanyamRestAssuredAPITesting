@@ -14,10 +14,13 @@ public class RestAssuredExtension {
 	private String uri;
 	private String method;
 
-	public RestAssuredExtension(String uri, String method) {
+	public RestAssuredExtension(String uri, String method, String token) {
 		String url = "https://jsonplaceholder.typicode.com/";
 		this.uri =  url + uri;
 		this.method = method;
+		//if (token!="") {
+			// builder.addHeader("Authorization","Bearer TokenName_211_2313_34");
+		//}
 		//Alternet way to do this by RequestSpecBuilder // We will do this by RequestSpecification
 		// builder.addHeader("Content-Type", "application/json");
 		// builder.addHeader("Authorization","Bearer TokenName_211_2313_34");

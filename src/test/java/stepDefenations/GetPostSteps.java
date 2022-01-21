@@ -32,7 +32,7 @@ public class GetPostSteps {
 	@When("^I perform \"([^\"]*)\" operation for \"([^\"]*)\" with path param key \"([^\"]*)\" and \"([^\"]*)\"$")
 	public void i_perform_operation_for_with_path_param_key_and(String method, String uri, String key, String value1)
 			throws Throwable {
-		RestAssuredExtension req1 = new RestAssuredExtension(uri + "/{" + key + "}", method);
+		RestAssuredExtension req1 = new RestAssuredExtension(uri + "/{" + key + "}", method,"");
 
 		HashMap<String, String> pathParams = new HashMap<String, String>();
 		pathParams.put(key, value1);
@@ -43,7 +43,7 @@ public class GetPostSteps {
 	@When("^I perform \"([^\"]*)\" operation for \"([^\"]*)\"$")
 	public void i_perform_operation_for(String method, String uri) throws Throwable {
 
-		RestAssuredExtension objmethodonly = new RestAssuredExtension(uri, method);
+		RestAssuredExtension objmethodonly = new RestAssuredExtension(uri, method,"");
 		response1 = objmethodonly.executeMethodOnly();
 	}
 
@@ -64,7 +64,7 @@ public class GetPostSteps {
 	@When("^I perform \"([^\"]*)\" operation for \"([^\"]*)\" with QueryParm key \"([^\"]*)\" and value (\\d+)$")
 	public void i_perform_operation_for_with_QueryParm_key_and_value(String method, String uri, String key,
 			Integer value) throws Throwable {
-		RestAssuredExtension res = new RestAssuredExtension(uri, method);
+		RestAssuredExtension res = new RestAssuredExtension(uri, method,"");
 		HashMap<String, Integer> queryparam = new HashMap<String, Integer>();
 		queryparam.put(key, value);
 		response1 = res.executeWithQueryParam(queryparam);
@@ -72,7 +72,7 @@ public class GetPostSteps {
 
 	@When("^I perform \"(.*)\" operation with body for \"(.*)\"$")
 	public void perfor_post_with_body(String method, String uri) {
-		RestAssuredExtension res = new RestAssuredExtension(uri, method);
+		RestAssuredExtension res = new RestAssuredExtension(uri, method,"");
 
 		HashMap<String, String> body = new HashMap<String, String>();
 		body.put("id", "102");
@@ -96,7 +96,7 @@ public class GetPostSteps {
 
 	@When("^I perform \"([^\"]*)\" operation for \"([^\"]*)\" with POJO body$")
 	public void i_perform_operation_for_with_POJO_body(String method, String uri, DataTable table) {
-		RestAssuredExtension rae = new RestAssuredExtension(uri, method);
+		RestAssuredExtension rae = new RestAssuredExtension(uri, method,"");
 
 		List<List<String>> values = table.raw();
 		Photos photoObj = new Photos();
